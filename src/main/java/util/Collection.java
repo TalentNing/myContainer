@@ -1,6 +1,8 @@
 package util;
 
-import lang.Iterable;
+//import lang.Iterable;
+
+import java.util.*;
 
 /**
  * Created by xiaox on 2016/10/28.
@@ -13,7 +15,7 @@ public interface Collection<E> extends Iterable<E>{
 
     boolean contains(Object o);
 
-    Iterator<E> iterator();
+    java.util.Iterator<E> iterator();
 
     Object[] toArray();
 

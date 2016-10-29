@@ -1,6 +1,9 @@
 package util;
 
 import util.function.Consumer;
+import util.function.DoubleConsumer;
+import util.function.IntConsumer;
+import util.function.LongConsumer;
 
 import java.util.Comparator;
 
@@ -70,122 +73,122 @@ public interface Spliterator<T> {
         }
     }
 
-//    public interface OfInt extends OfPrimitive<Integer, IntConsumer, OfInt> {
-//
-//        @Override
-//        OfInt trySplit();
-//
-//        @Override
-//        boolean tryAdvance(IntConsumer action);
-//
-//        @Override
-//        default void forEachRemaining(IntConsumer action) {
-//            do {
-//            } while (tryAdvance(action));
-//        }
-//
-//        default boolean tryAdvance(Consumer<? super Integer> action) {
-//            if (action instanceof IntConsumer) {
-//                return tryAdvance((IntConsumer) action);
-//            }
-//            else {
-//                if (Tripwire.ENABLED)
-//                    Tripwire.trip(getClass(),
-//                            "{0} calling Spliterator.OfInt.tryAdvance((IntConsumer) action::accept)");
-//                return tryAdvance((IntConsumer) action::accept);
-//            }
-//        }
-//
-//        default void forEachRemaining(Consumer<? super Integer> action) {
-//            if (action instanceof IntConsumer) {
-//                forEachRemaining((IntConsumer) action);
-//            }
-//            else {
-//                if (Tripwire.ENABLED)
-//                    Tripwire.trip(getClass(),
-//                            "{0} calling Spliterator.OfInt.forEachRemaining((IntConsumer) action::accept)");
-//                forEachRemaining((IntConsumer) action::accept);
-//            }
-//        }
-//    }
-//
-//    public interface OfLong extends OfPrimitive<Long, LongConsumer, OfLong> {
-//
-//        @Override
-//        OfLong trySplit();
-//
-//        @Override
-//        boolean tryAdvance(LongConsumer action);
-//
-//        @Override
-//        default void forEachRemaining(LongConsumer action) {
-//            do { } while (tryAdvance(action));
-//        }
-//
-//        default boolean tryAdvance(Consumer<? super Long> action) {
-//            if (action instanceof LongConsumer) {
-//                return tryAdvance((LongConsumer) action);
-//            }
-//            else {
-//                if (Tripwire.ENABLED)
-//                    Tripwire.trip(getClass(),
-//                            "{0} calling Spliterator.OfLong.tryAdvance((LongConsumer) action::accept)");
-//                return tryAdvance((LongConsumer) action::accept);
-//            }
-//        }
-//
-//        default void forEachRemaining(Consumer<? super Long> action) {
-//            if (action instanceof LongConsumer) {
-//                forEachRemaining((LongConsumer) action);
-//            }
-//            else {
-//                if (Tripwire.ENABLED)
-//                    Tripwire.trip(getClass(),
-//                            "{0} calling Spliterator.OfLong.forEachRemaining((LongConsumer) action::accept)");
-//                forEachRemaining((LongConsumer) action::accept);
-//            }
-//        }
-//    }
-//
-//    public interface OfDouble extends OfPrimitive<Double, DoubleConsumer, OfDouble> {
-//
-//        @Override
-//        OfDouble trySplit();
-//
-//        @Override
-//        boolean tryAdvance(DoubleConsumer action);
-//
-//        @Override
-//        default void forEachRemaining(DoubleConsumer action) {
-//            do {
-//            } while (tryAdvance(action));
-//        }
-//
-//        default boolean tryAdvance(Consumer<? super Double> action) {
-//            if (action instanceof DoubleConsumer) {
-//                return tryAdvance((DoubleConsumer) action);
-//            }
-//            else {
-//                if (Tripwire.ENABLED)
-//                    Tripwire.trip(getClass(),
-//                            "{0} calling Spliterator.OfDouble.tryAdvance((DoubleConsumer) action::accept)");
-//                return tryAdvance((DoubleConsumer) action::accept);
-//            }
-//        }
-//
-//        default void forEachRemaining(Consumer<? super Double> action) {
-//            if (action instanceof DoubleConsumer) {
-//                forEachRemaining((DoubleConsumer) action);
-//            }
-//            else {
-//                if (Tripwire.ENABLED)
-//                    Tripwire.trip(getClass(),
-//                            "{0} calling Spliterator.OfDouble.forEachRemaining((DoubleConsumer) action::accept)");
-//                forEachRemaining((DoubleConsumer) action::accept);
-//            }
-//        }
-//
-//    }
+    public interface OfInt extends OfPrimitive<Integer, IntConsumer, OfInt> {
+
+        @Override
+        OfInt trySplit();
+
+        @Override
+        boolean tryAdvance(IntConsumer action);
+
+        @Override
+        default void forEachRemaining(IntConsumer action) {
+            do {
+            } while (tryAdvance(action));
+        }
+
+        default boolean tryAdvance(Consumer<? super Integer> action) {
+            if (action instanceof IntConsumer) {
+                return tryAdvance((IntConsumer) action);
+            }
+            else {
+                if (Tripwire.ENABLED)
+                    Tripwire.trip(getClass(),
+                            "{0} calling Spliterator.OfInt.tryAdvance((IntConsumer) action::accept)");
+                return tryAdvance((IntConsumer) action::accept);
+            }
+        }
+
+        default void forEachRemaining(Consumer<? super Integer> action) {
+            if (action instanceof IntConsumer) {
+                forEachRemaining((IntConsumer) action);
+            }
+            else {
+                if (Tripwire.ENABLED)
+                    Tripwire.trip(getClass(),
+                            "{0} calling Spliterator.OfInt.forEachRemaining((IntConsumer) action::accept)");
+                forEachRemaining((IntConsumer) action::accept);
+            }
+        }
+    }
+
+    public interface OfLong extends OfPrimitive<Long, LongConsumer, OfLong> {
+
+        @Override
+        OfLong trySplit();
+
+        @Override
+        boolean tryAdvance(LongConsumer action);
+
+        @Override
+        default void forEachRemaining(LongConsumer action) {
+            do { } while (tryAdvance(action));
+        }
+
+        default boolean tryAdvance(Consumer<? super Long> action) {
+            if (action instanceof LongConsumer) {
+                return tryAdvance((LongConsumer) action);
+            }
+            else {
+                if (Tripwire.ENABLED)
+                    Tripwire.trip(getClass(),
+                            "{0} calling Spliterator.OfLong.tryAdvance((LongConsumer) action::accept)");
+                return tryAdvance((LongConsumer) action::accept);
+            }
+        }
+
+        default void forEachRemaining(Consumer<? super Long> action) {
+            if (action instanceof LongConsumer) {
+                forEachRemaining((LongConsumer) action);
+            }
+            else {
+                if (Tripwire.ENABLED)
+                    Tripwire.trip(getClass(),
+                            "{0} calling Spliterator.OfLong.forEachRemaining((LongConsumer) action::accept)");
+                forEachRemaining((LongConsumer) action::accept);
+            }
+        }
+    }
+
+    public interface OfDouble extends OfPrimitive<Double, DoubleConsumer, OfDouble> {
+
+        @Override
+        OfDouble trySplit();
+
+        @Override
+        boolean tryAdvance(DoubleConsumer action);
+
+        @Override
+        default void forEachRemaining(DoubleConsumer action) {
+            do {
+            } while (tryAdvance(action));
+        }
+
+        default boolean tryAdvance(Consumer<? super Double> action) {
+            if (action instanceof DoubleConsumer) {
+                return tryAdvance((DoubleConsumer) action);
+            }
+            else {
+                if (Tripwire.ENABLED)
+                    Tripwire.trip(getClass(),
+                            "{0} calling Spliterator.OfDouble.tryAdvance((DoubleConsumer) action::accept)");
+                return tryAdvance((DoubleConsumer) action::accept);
+            }
+        }
+
+        default void forEachRemaining(Consumer<? super Double> action) {
+            if (action instanceof DoubleConsumer) {
+                forEachRemaining((DoubleConsumer) action);
+            }
+            else {
+                if (Tripwire.ENABLED)
+                    Tripwire.trip(getClass(),
+                            "{0} calling Spliterator.OfDouble.forEachRemaining((DoubleConsumer) action::accept)");
+                forEachRemaining((DoubleConsumer) action::accept);
+            }
+        }
+
+    }
 
 
 }
