@@ -8,7 +8,16 @@ interface inter{
     public void print(String param);
 }
 public class Test {
-    public static void main(String[] args) {
 
+    public void f() {
+        throw new RuntimeException();
+    }
+
+
+    public static void main(String[] args) {
+        int[] ss = new int[2];
+        int i = 0;
+        ss[i++] = 5;
+        System.out.println(ss[0]);
     }
 }

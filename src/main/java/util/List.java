@@ -1,6 +1,8 @@
 package util;
 
-import java.util.Iterator;
+import java.util.*;
+import java.util.Spliterator;
+import java.util.function.UnaryOperator;
 
 /**
  * Created by tkn on 2016/10/29.
@@ -19,7 +21,7 @@ public interface List <E> extends Collection<E>{
 
     boolean contains(Object o);
 
-    boolean contains(Collection<?> c);
+    boolean containsAll(Collection<?> c);
 
     boolean equals(Object o);
 
@@ -35,9 +37,9 @@ public interface List <E> extends Collection<E>{
 
     int lastIndexOf(Object o);
 
-//    ListIterator<E> listIterator();
+    ListIterator<E> listIterator();   // I do not know how to implement a iterator
 
-//  ListIterator<E> listIterator(int index);
+    ListIterator<E> listIterator(int index);
 
     E remove(int index);
 
@@ -45,9 +47,13 @@ public interface List <E> extends Collection<E>{
 
     boolean removeAll(Collection<?> c);
 
-//    deafault void replaceAll(UnaryOperator<E> operator){
-//
-//    }
+    default void replaceAll(UnaryOperator<E> operator){
+        Objects.requireNonNull(operator);
+        ListIterator<E> listIter = this.listIterator();
+        while(listIter.hasNext()){
+            listIter.set(operator.apply(listIter.next()));
+        }
+    }
 
     boolean retainAll(Collection<?> c);
 
@@ -55,9 +61,19 @@ public interface List <E> extends Collection<E>{
 
     int size();
 
-//    default void sort(Comparator<? super E> c ){}
+    default void sort(Comparator<? super E> c ){
+        Object[] o = this.toArray();
+        Arrays.sort(o,(Comparator<Object>)c);
+        ListIterator iter = listIterator();
+        for(Object ob : o){
+            iter.next();
+            iter.set(ob);
+        }
+    }
 
-//    default Spliterator<E> spliterator(){}
+//    default Spliterator<E> spliterator(){
+//
+//    }
 
     List<E> subList(int fromIndex,int toIndex);
 
